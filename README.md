@@ -1,6 +1,6 @@
 # uCTF-2025
 These are write-ups of the problems I personally solved from the 2025 Trend Micro CTF with help from my team (Bitflip).
-![40th](https://github.com/Vynzzz/uCTF-2025/blob/main/images/Team%20placement.png?raw=true)
+![40th](https://github.com/Vynzzz/uCTF-2025/blob/main/images/Team%20placement.png?raw=true) <br />
 Huge thanks and credit to the rest of my team and our very supportive adviser, we may not have gotten top 5 but I'm proud we were able to get max points.
 ## Software/OS used
 - Kali virtualbox VM
@@ -11,7 +11,7 @@ Doing the usual steps when given a file, I first cat the file and piped it to he
 ```
 cat 1cba1c83e54e6c830bf3e5c1853b5dc4 | head
 ```
-![FileOutput](https://github.com/Vynzzz/uCTF-2025/blob/main/images/AncientFileCatOutput.png?raw=true)
+![FileOutput](https://github.com/Vynzzz/uCTF-2025/blob/main/images/AncientFileCatOutput.png?raw=true) <br />
 There weren't any notable text found aside from a 'word.txt' found at the 2nd line of the output.
 ## Further investigation
 As I'm not familiar with what type of file it is exactly, I decided to run the command ```file``` on the file to see what exact filetype it is.
@@ -24,7 +24,7 @@ We only need these commands to verify its contents and extract it.
 lhasa -l 1cba1c83e54e6c830bf3e5c1853b5dc4
 lhasa -x 1cba1c83e54e6c830bf3e5c1853b5dc4
 ```
-![FileList](https://github.com/Vynzzz/uCTF-2025/blob/main/images/LHa%20Ouput%20list.png?raw=true)
+![FileList](https://github.com/Vynzzz/uCTF-2025/blob/main/images/LHa%20Ouput%20list.png?raw=true) <br />
 ## Extracting the flag
 Now that we have words.txt, we just need to cat it and see if it does contain the flag.
 It seems to be a list of words (color me surprised), a simple grep command to output to a separate file should allow us to get the flag thanks to us knowing the flag format.
@@ -35,7 +35,7 @@ Just cat the flag file and we should have it
 ```
 cat flag
 ```
-![Flag](https://github.com/Vynzzz/uCTF-2025/blob/main/images/AncientFile%20flag.png?raw=true)
+![Flag](https://github.com/Vynzzz/uCTF-2025/blob/main/images/AncientFile%20flag.png?raw=true) <br />
 
 # In The Property
 Another file was given to find a flag.
@@ -43,10 +43,10 @@ Like the usual we cat and pipe the file to head for any familiar strings or file
 ```
 cat bd3688e970d227c7045afde973cbe1e0 | head
 ```
-![CatFile](https://github.com/Vynzzz/uCTF-2025/blob/main/images/InTheProperty%20cat.png?raw=true)
+![CatFile](https://github.com/Vynzzz/uCTF-2025/blob/main/images/InTheProperty%20cat.png?raw=true) <br />
 We can see that there is a PNG signature at the top of the file
 ## Viewing the png
 Clearly the flag wouldn't be as easy as checking the image, but for the sake of being thorough I checked it but it had nothing visually.
-Next step when checking image files is using ```zsteg``` or ```exiftool```. Zsteg didn't show any results but exiftool showed us a flag in the metadata of the image.
-![Metadata](https://github.com/Vynzzz/uCTF-2025/blob/main/images/InTheProperty%20metadata.png?raw=true)
-![Flag](https://github.com/Vynzzz/uCTF-2025/blob/main/images/InTheProperty%20flag.png?raw=true)
+Next step when checking image files is using ```zsteg``` or ```exiftool```. Zsteg didn't show any results but exiftool showed us a flag in the metadata of the image. <br />
+![Metadata](https://github.com/Vynzzz/uCTF-2025/blob/main/images/InTheProperty%20metadata.png?raw=true) <br />
+![Flag](https://github.com/Vynzzz/uCTF-2025/blob/main/images/InTheProperty%20flag.png?raw=true) <br />
